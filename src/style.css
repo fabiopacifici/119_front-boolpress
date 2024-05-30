@@ -1,0 +1,198 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body
+{
+  background-color: #ededed;
+  font-family:'Poppins', sans-serif
+}
+
+img
+{
+  max-width: 100%;
+}
+
+.card
+{
+  background-color: white;
+  height: 100%;
+
+  & > img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .card-body
+  {
+    padding: 0.5rem;
+
+    & h3 {
+      font-weight: 400;
+    }
+  
+  }
+}
+
+.btn
+{
+  display: inline-block;
+  padding: 0.5rem;
+  border: none;
+  text-decoration: none;
+  color: black;
+}
+
+.btn-primary {
+  background-color: white;
+}
+
+/* Pagination */
+
+nav.pagination
+{
+  & ul
+  {
+    list-style: none;
+    display: flex;
+    gap: 0.25rem;
+
+    .page-item.active
+    {
+      & > button
+      {
+        background-color: #d0d0d0;
+      }
+    }
+
+    .page-link
+    {
+      padding: 1rem;
+      border: 1px solid #d0d0d0;
+      border-radius: 0.25rem;
+
+      &:hover
+      {
+        cursor: pointer;
+        background-color: #dbdbdb;
+      }
+    }
+
+  }
+}
+
+/* #region layout */
+
+.container
+{
+  width: 80%;
+  max-width: 1176px;
+  margin: auto;
+
+  .row
+  {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1rem;
+
+    .col
+    {
+      width: 100%;
+      padding: 1rem;
+
+      @media (min-width: 600px)
+      {
+        width: 50%;
+      }
+
+      @media (min-width: 992px)
+      {
+        width: calc(100% / 12 * 4);
+      }
+
+      @media (min-width: 1200px)
+      {
+        width: calc(100% / 12 * 3);
+      }
+
+    }
+  }
+
+}
+
+/* Header */
+
+header
+{
+  .main_menu
+  {
+
+    background-color: white;
+    padding: 0.75rem;
+    box-shadow: 0 0 10px gray;
+
+    .container
+    {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .right-menu
+    {
+      & a
+      {
+        padding: 0.5rem;
+        text-decoration: none;
+        color: black;
+      }
+    }
+
+  }
+}
+
+/* Main */
+main
+{
+  min-height: 100vh;
+}
+
+.banner
+{
+  background-color: #d0d0d0;
+  padding: 4rem 0;
+
+  & h1
+  {
+    font-size: 3rem;
+  }
+
+  & p
+  {
+    font-size: 1.25rem;
+    margin: 1rem 0;
+  }
+}
+
+/* Footer */
+
+footer
+{
+  background-color: #d0d0d0;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-top: 2rem;
+
+  ul
+  {
+    list-style: none;
+
+    a
+    {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
