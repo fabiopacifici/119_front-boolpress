@@ -50,6 +50,13 @@ img
   background-color: white;
 }
 
+.py-5 {
+  padding: 2.5rem 0;
+}
+
+
+
+
 /* Pagination */
 
 nav.pagination
