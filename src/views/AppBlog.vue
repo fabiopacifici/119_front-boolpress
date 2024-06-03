@@ -8,7 +8,7 @@ export default {
   },
   data() {
     return {
-      base_api_url: 'http://127.0.0.1:8000',
+      base_api_url: 'http://127.0.0.1:8001',
       base_posts_url: '/api/posts',
       posts: [],
       loading: true
@@ -54,7 +54,8 @@ export default {
 
 <template>
 
-  <AppBanner title="BoolPress Blog" lead-text="Read our amaing blog posts" call-to-action="Find more about us" call-to-action-url="about"></AppBanner>
+  <AppBanner title="BoolPress Blog" lead-text="Read our amaing blog posts" call-to-action="Find more about us"
+    call-to-action-url="about"></AppBanner>
 
   <div class="container">
 
@@ -62,17 +63,25 @@ export default {
       <div class="col" v-for="post in posts.data">
 
         <div class="card">
-          <template v-if="post.cover_image.startsWith('uploads')">
-            <img :src="base_api_url + '/storage/' + post.cover_image" alt="">
-          </template>
-          <template v-else>
-            <img :src="post.cover_image" alt="">
-          </template>
+
+          <router-link :to="{ name: 'singlePost', params: { id: post.id } }">
+
+            <template v-if="post.cover_image.startsWith('uploads')">
+              <img :src="base_api_url + '/storage/' + post.cover_image" alt="">
+            </template>
+            <template v-else>
+              <img :src="post.cover_image" alt="">
+            </template>
+
+          </router-link>
+
 
           <div class="card-body">
-            <h3>
-              {{ post.title }}
-            </h3>
+            <router-link :to="{ name: 'singlePost', params: { id: post.id } }">
+              <h3>
+                {{ post.title }}
+              </h3>
+            </router-link>
           </div>
         </div>
 

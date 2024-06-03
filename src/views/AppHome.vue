@@ -1,19 +1,19 @@
 <script>
 import axios from 'axios';
 import AppBanner from '../components/AppBanner.vue';
-  export default {
-    name: 'AppHome',
-    components: {
-      AppBanner
-    },
-    data(){
-      return {
-        loading: true,
-        latestPosts: [],
-        base_api_url: 'http://127.0.0.1:8000',
-        base_posts_url: '/api/latest',
-      }
-    },
+export default {
+  name: 'AppHome',
+  components: {
+    AppBanner
+  },
+  data() {
+    return {
+      loading: true,
+      latestPosts: [],
+      base_api_url: 'http://127.0.0.1:8001',
+      base_posts_url: '/api/latest',
+    }
+  },
   methods: {
 
     callAPI(url) {
@@ -34,7 +34,7 @@ import AppBanner from '../components/AppBanner.vue';
     let url = this.base_api_url + this.base_posts_url
     this.callAPI(url);
   }
-  }
+}
 </script>
 
 <template>
@@ -49,17 +49,21 @@ import AppBanner from '../components/AppBanner.vue';
         <div class="col" v-for="post in latestPosts">
 
           <div class="card">
-            <template v-if="post.cover_image.startsWith('uploads')">
-              <img :src="base_api_url + '/storage/' + post.cover_image" alt="">
-            </template>
-            <template v-else>
-              <img :src="post.cover_image" alt="">
-            </template>
+            <router-link :to="{ name: 'singlePost', params: { id: post.id } }">
+              <template v-if="post.cover_image.startsWith('uploads')">
+                <img :src="base_api_url + '/storage/' + post.cover_image" alt="">
+              </template>
+              <template v-else>
+                <img :src="post.cover_image" alt="">
+              </template>
+            </router-link>
 
             <div class="card-body">
-              <h3>
-                {{ post.title }}
-              </h3>
+              <router-link :to="{ name: 'singlePost', params: { id: post.id } }">
+                <h3>
+                  {{ post.title }}
+                </h3>
+                </router-link>
             </div>
           </div>
 
@@ -81,6 +85,4 @@ import AppBanner from '../components/AppBanner.vue';
 
 
 
-<style scoped>
-
-</style>
+<style scoped></style>

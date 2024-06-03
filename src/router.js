@@ -1,10 +1,11 @@
 import { createWebHistory, createRouter } from 'vue-router'
 
 
-import  AppHome  from "./views/AppHome.vue";
-import  AppBlog  from "./views/AppBlog.vue";
-import  AppAbout  from "./views/AppAbout.vue";
-import  AppContacts  from "./views/AppContacts.vue";
+import AppHome from "./views/AppHome.vue";
+import AppBlog from "./views/AppBlog.vue";
+import SinglePost from "./views/SinglePost.vue";
+import AppAbout from "./views/AppAbout.vue";
+import AppContacts from "./views/AppContacts.vue";
 
 
 
@@ -13,7 +14,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home', 
+      name: 'home',
       component: AppHome
     },
     {
@@ -25,6 +26,11 @@ const router = createRouter({
       path: '/blog',
       name: 'blog',
       component: AppBlog
+    },
+    {
+      path: '/blog/:id',
+      name: 'singlePost',
+      component: SinglePost
     },
     {
       path: '/contacts',
